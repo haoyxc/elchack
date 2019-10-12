@@ -3,13 +3,13 @@ import { StyleSheet, Text, View } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import { SCREENS } from "./constants";
-import { LensScreen, WelcomeScreen, InfoScreen } from "./screens";
+import { WelcomeScreen, InfoScreen, MapsScreen } from "./screens";
 
 const Navigator = createStackNavigator(
   {
     Welcome: WelcomeScreen,
-    Lens: LensScreen,
-    Info: InfoScreen
+    Info: InfoScreen,
+    Maps: MapsScreen
   },
   {
     initialRouteName: SCREENS.WELCOME

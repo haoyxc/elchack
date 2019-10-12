@@ -11,6 +11,7 @@ import {
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
 import { SCREENS } from "../constants";
+import axios from "axios";
 
 import { RNCamera } from "react-native-camera";
 
@@ -23,6 +24,7 @@ takePicture = async function(camera) {
 
 function Welcome({ navigation }) {
   const [chosenImage, setChosenImage] = useState(null);
+  const base = "http://localhost:4000";
   async function askPermission() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
     return status;
@@ -46,14 +48,26 @@ function Welcome({ navigation }) {
       type: "image/jpeg",
       name: "photo.jpg"
     });
-    console.log(chosenImage.uri);
+    navigation.navigate(SCREENS.INFO);
+    // try {
+    //   let resp = await fetch(`${base}/img/${chosenImage.uri}`, {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     }
+    //   });
+    //   console.log("in here");
+    //   console.log(resp.json);
+    //   navigation.navigate(SCREENS.INFO);
+    // } catch (e) {
+    //   console.log(e);
+    // }
+
+    console.log();
   }
   useEffect(() => {
     askPermission();
   }, []);
-  function upload() {
-    navigation.navigate(SCREENS.INFO);
-  }
 
   return (
     <View style={styles.container}>
