@@ -72,8 +72,8 @@ function Welcome({ navigation }) {
     <View style={styles.container}>
       <ImageBackground source={roseImg} style={{ width: "100%", height: "100%" }}>
         {/* <View style={styles.innerCon}> */}
-        <Text style={styles.text}>Welcome to Estee Lauder</Text>
-        <Text style={styles.text2}>Add a picture to learn more about our products</Text>
+        <Text style={styles.text}>Welcome to Beyond Estée</Text>
+        <Text style={styles.text2}>Select a picture to learn more about our products' ingredients</Text>
 
         <TouchableOpacity style={styles.btnMain} onPress={() => chooseImage()}>
           {chosenImage ? (
