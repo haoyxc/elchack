@@ -3,16 +3,17 @@ import { StyleSheet, Text, View } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import { SCREENS } from "./constants";
-import { WelcomeScreen, InfoScreen, MapsScreen } from "./screens";
+import { WelcomeScreen, InfoScreen, MapsScreen, HomeScreen } from "./screens";
 
 const Navigator = createStackNavigator(
   {
     Welcome: WelcomeScreen,
     Info: InfoScreen,
-    Maps: MapsScreen
+    Maps: MapsScreen,
+    Home: HomeScreen
   },
   {
-    initialRouteName: SCREENS.WELCOME
+    initialRouteName: SCREENS.HOME
   }
 );
 

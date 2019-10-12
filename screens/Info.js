@@ -24,12 +24,12 @@ function Info({ navigation }) {
   }
   return (
     <View style={styles.container}>
-      {/* <Text>{exInfo.ingredients.length} Ingredients Found</Text>
+      <Text>{exInfo.ingredients.length} Ingredients Found</Text>
       <TouchableOpacity>
         <Text style={styles.item} onPress={() => handleClick()}>
           hellp
         </Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
       <FlatList
         style={styles.list}
         data={exInfo.ingredients}
@@ -54,8 +54,8 @@ Info.navigationOptions = {
 };
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 22
+    // flex: 1,
+    // paddingTop: 22
     // // flex: 1,
     // justifyContent: "center",
     // alignItems: "center",
@@ -72,7 +72,9 @@ const styles = StyleSheet.create({
   item: {
     padding: 10,
     fontSize: 18,
-    height: 44
+    height: 44,
+    height: 40,
+    width: 50
     // paddingTop: 5,
     // paddingBottom: 5,
     // padding: 10,
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     // borderColor: "black"
   },
   list: {
-    // flex: 1,
+    flex: 1
     // backgroundColor: "white",
     // marginTop: 10
   },

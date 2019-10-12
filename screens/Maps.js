@@ -12,8 +12,8 @@ import {
 } from "react-native";
 function Maps({ navigation }) {
   return (
-    <View>
-      <Text styles={styles.text}>INSERT MAP</Text>
+    <View style={styles.container}>
+      <Text styles={styles.textTitle}>This ingredient originated from...</Text>
       <MapView
         style={styles.mapDisplay}
         initialRegion={{
@@ -28,7 +28,7 @@ function Maps({ navigation }) {
             longitude: 37.78825,
             latitude: -122.4324
           }}
-          title={Sandalwood}
+          title={`Sandalwood`}
         />
       </MapView>
     </View>
@@ -38,8 +38,15 @@ Maps.navigationOptions = {
   title: "Maps"
 };
 const styles = {
-  text: {
-    fontSize: 30
+  container: {
+    // flex: 1
+    // alignItems: "center"
+    // flexDirection: "column",
+    // textAlign: "center"
+  },
+  textTItle: {
+    fontSize: 30,
+    textAlign: "center"
   },
   mapDisplay: {
     height: 600,

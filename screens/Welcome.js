@@ -72,21 +72,20 @@ function Welcome({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.innerCon}>
-        <Text style={styles.text}>Welcome to Estee Lauder</Text>
+        <Text style={styles.text}>Learn more about our quality ingredients</Text>
         {/* <TouchableOpacity onPress={() => chooseImage()}>
           <Text style={styles.innerText}>Touch me!</Text>
         </TouchableOpacity> */}
-        {chosenImage ? (
-          <Button title="Change your image!" onPress={() => chooseImage()} />
-        ) : (
-          <Button
-            title="Upload An Image of Your Product!"
-            onPress={() => chooseImage()}
-          />
-        )}
+        <TouchableOpacity style={styles.btnMain} onPress={() => chooseImage()}>
+          {chosenImage ? (
+            <Text style={styles.btnText}>Change your image</Text>
+          ) : (
+            <Text style={styles.btnText}>Upload an image of your product to begin!</Text>
+          )}
+        </TouchableOpacity>
 
         {chosenImage ? (
-          <Image source={{ uri: chosenImage.uri }} style={{ width: 200, height: 200 }} />
+          <Image source={{ uri: chosenImage.uri }} style={{ width: 300, height: 300 }} />
         ) : (
           <Text style={styles.helperText}>No image chosen</Text>
         )}
@@ -94,7 +93,7 @@ function Welcome({ navigation }) {
           <TouchableOpacity onPress={() => uploadImage()}>
             <View
               style={{
-                backgroundColor: "blue",
+                backgroundColor: "#FF1493",
                 padding: 10
               }}
             >
@@ -132,17 +131,30 @@ const styles = StyleSheet.create({
 
     marginTop: 20
   },
-  text: {
+  btnMain: {
     backgroundColor: "#ffbbcc",
+    borderRadius: 20,
+    color: "white",
+    paddingTop: 20,
+    paddingBottom: 20
+  },
+  text: {
     fontWeight: "300",
     fontStyle: "italic",
-    fontSize: 20,
-    padding: 20
+    fontSize: 15,
+    padding: 20,
+    borderRadius: 20
   },
   innerText: {
     fontWeight: "200"
   },
   helperText: {
+    textAlign: "center",
+    fontWeight: "100",
+    fontStyle: "italic"
+  },
+  btnText: {
+    color: "white",
     textAlign: "center"
   }
 });
