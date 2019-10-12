@@ -3,9 +3,6 @@ export const SCREENS = {
   WELCOME: "Welcome",
   INFO: "Info",
   MAPS: "Maps",
-  HOME: "Home"
-};
-
-export const COLORS = {
-  MAIN: "#F5FCFF"
+  HOME: "Home",
+  VIDPLAYER: "VidPlayer"
 };

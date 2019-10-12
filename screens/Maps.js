@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MapView, { Marker } from "react-native-maps";
 import markers from "./markers.json";
-import { Video } from "expo-av";
 import {
   StyleSheet,
   View,
@@ -11,15 +10,18 @@ import {
   Text,
   FlatList
 } from "react-native";
+import { SCREENS } from "../constants";
+
 function Maps({ navigation }) {
   // let [markers, setMarkers] = useState(null);
   let id = navigation.getParam("id", 0);
   let loc = markers[id];
   let item = navigation.getParam("item", "Good ingredient!");
-  let [showVid, setShowVid] = useState(false);
 
   function handleClick() {
-    setShowVid(!showVid);
+    navigation.navigate(SCREENS.VIDPLAYER, {
+      url: loc.content
+    });
   }
 
   // function initMap() {
@@ -69,6 +71,7 @@ function Maps({ navigation }) {
     <View style={styles.container}>
       <Text styles={styles.textTitle}>This ingredient originated from...</Text>
       <MapView
+        onPress={() => handleClick()}
         style={styles.mapDisplay}
         initialRegion={{
           latitude: loc.coords.lat,
@@ -82,18 +85,6 @@ function Maps({ navigation }) {
           coordinate={{ latitude: loc.coords.lat, longitude: loc.coords.lng }}
           title={item}
         />
-        {showVid ? (
-          <>
-            {/* <Text style={{ textAlign: "center" }}> Info about this place!</Text> */}
-            <Video
-              source={{ uri: loc.content }}
-              shouldPlay
-              resizeMode="cover"
-              style={{ width: 300, height: 300 }}
-            />
-            {/* <View style={styles.controlBar}></View> */}
-          </>
-        ) : null}
       </MapView>
     </View>
   );

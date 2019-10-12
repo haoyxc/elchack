@@ -51,9 +51,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     textAlign: "center",
     margin: 10,
-    fontWeight: "400",
-    color: "black",
-    fontStyle: "italic"
+    fontWeight: "300",
+    color: "black"
+    // fontStyle: "italic"
   },
   button: {
     alignSelf: "stretch",
