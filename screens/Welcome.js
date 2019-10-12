@@ -79,7 +79,7 @@ function Welcome({ navigation }) {
           {chosenImage ? (
             <Text style={styles.btnText}>Change your image</Text>
           ) : (
-            <Text style={styles.btnText}>Upload an image of your product...</Text>
+            <Text style={styles.btnText}>Upload Image</Text>
           )}
         </TouchableOpacity>
         <View style={{ style: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -153,6 +153,8 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: "300",
     fontSize: 25,
+    fontWeight: "400",
+    marginTop: 100,
     padding: 20,
     borderRadius: 20,
     textAlign: "center"
@@ -162,6 +164,7 @@ const styles = StyleSheet.create({
     fontStyle: "italic",
     fontSize: 15,
     padding: 20,
+    marginTop: 50,
     borderRadius: 20,
     textAlign: "center"
   },
