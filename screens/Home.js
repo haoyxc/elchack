@@ -11,7 +11,7 @@ import {
   FlatList,
   ImageBackground
 } from "react-native";
-import img from "./img/lipstickbg.jpg";
+import img from "./img/StartingScreen.jpg";
 
 function Home({ navigation }) {
   function handlePress() {
