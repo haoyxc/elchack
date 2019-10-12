@@ -7,7 +7,9 @@ import {
   TouchableOpacity,
   Text
 } from "react-native";
-function Info({ navigation }) {}
+function Info({ navigation }) {
+  return <View>INFO!</View>;
+}
 
 Info.navigationOptions = {
   title: "Info"

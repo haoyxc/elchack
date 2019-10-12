@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Button,
+  Image
+} from "react-native";
+import * as Permissions from "expo-permissions";
+import * as ImagePicker from "expo-image-picker";
+import { SCREENS } from "../constants";
 
 import { RNCamera } from "react-native-camera";
-const PendingView = () => (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: "lightgreen",
-      justifyContent: "center",
-      alignItems: "center"
-    }}
-  >
-    <Text>Waiting</Text>
-  </View>
-);
+
 takePicture = async function(camera) {
   const options = { quality: 0.5, base64: true };
   const data = await camera.takePictureAsync(options);
@@ -22,44 +22,80 @@ takePicture = async function(camera) {
 };
 
 function Welcome({ navigation }) {
+  const [chosenImage, setChosenImage] = useState(null);
+  async function askPermission() {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    return status;
+  }
+  async function chooseImage() {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All
+      // allowsEditing: true,
+      // aspect: [4, 3]
+    });
+    console.log("result", result);
+    if (result.cancelled) {
+      return;
+    }
+    setChosenImage(result);
+  }
+  async function uploadImage() {
+    const fd = new FormData();
+    fd.append("photo", {
+      uri: chosenImage.uri,
+      type: "image/jpeg",
+      name: "photo.jpg"
+    });
+    console.log(chosenImage.uri);
+  }
+  useEffect(() => {
+    askPermission();
+  }, []);
+  function upload() {
+    navigation.navigate(SCREENS.INFO);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.innerCon}>
         <Text style={styles.text}>Welcome to Estee Lauder</Text>
-        <TouchableOpacity style={styles.innerText}>
-          <Text>Touch me!</Text>
-        </TouchableOpacity>
-        {/* <RNCamera
-          style={styles.preview}
-          type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
-          androidCameraPermissionOptions={{
-            title: "Permission to use camera",
-            message: "We need your permission to use your camera",
-            buttonPositive: "Ok",
-            buttonNegative: "Cancel"
-          }}
-          androidRecordAudioPermissionOptions={{
-            title: "Permission to use audio recording",
-            message: "We need your permission to use your audio",
-            buttonPositive: "Ok",
-            buttonNegative: "Cancel"
-          }}
-        >
-          {({ camera, status, recordAudioPermissionStatus }) => {
-            if (status !== "READY") return <PendingView />;
-            return (
-              <View style={{ flex: 0, flexDirection: "row", justifyContent: "center" }}>
-                <TouchableOpacity
-                  onPress={() => this.takePicture(camera)}
-                  style={styles.capture}
-                >
-                  <Text style={{ fontSize: 14 }}> SNAP </Text>
-                </TouchableOpacity>
-              </View>
-            );
-          }}
-        </RNCamera> */}
+        {/* <TouchableOpacity onPress={() => chooseImage()}>
+          <Text style={styles.innerText}>Touch me!</Text>
+        </TouchableOpacity> */}
+        {chosenImage ? (
+          <Button title="Change your image!" onPress={() => chooseImage()} />
+        ) : (
+          <Button
+            title="Upload An Image of Your Product!"
+            onPress={() => chooseImage()}
+          />
+        )}
+
+        {chosenImage ? (
+          <Image source={{ uri: chosenImage.uri }} style={{ width: 200, height: 200 }} />
+        ) : (
+          <Text style={styles.helperText}>No image chosen</Text>
+        )}
+        {chosenImage && (
+          <TouchableOpacity onPress={() => uploadImage()}>
+            <View
+              style={{
+                backgroundColor: "blue",
+                padding: 10
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  textAlign: "center",
+                  fontWeight: "bold"
+                }}
+              >
+                Upload Image
+              </Text>
+            </View>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -74,15 +110,16 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
+    textAlign: "center"
   },
   innerCon: {
-    backgroundColor: "#ffbbcc",
     // flex: 1,
 
     marginTop: 20
   },
   text: {
+    backgroundColor: "#ffbbcc",
     fontWeight: "300",
     fontStyle: "italic",
     fontSize: 20,
@@ -90,5 +127,8 @@ const styles = StyleSheet.create({
   },
   innerText: {
     fontWeight: "200"
+  },
+  helperText: {
+    textAlign: "center"
   }
 });
