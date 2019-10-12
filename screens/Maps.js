@@ -11,6 +11,7 @@ import {
   FlatList
 } from "react-native";
 import { SCREENS } from "../constants";
+import * as WebBrowser from "expo-web-browser";
 
 function Maps({ navigation }) {
   // let [markers, setMarkers] = useState(null);
@@ -19,9 +20,7 @@ function Maps({ navigation }) {
   let items = navigation.getParam("items", "Good ingredient!");
 
   function handleClick(num) {
-    navigation.navigate(SCREENS.VIDPLAYER, {
-      url: markers[num].content
-    });
+    WebBrowser.openBrowserAsync(markers[num].content);
   }
 
   return (
@@ -43,7 +42,7 @@ function Maps({ navigation }) {
           title={item}
         /> */}
         <Marker
-          // onPress={() => handleClick(0)}
+          onPress={() => handleClick(0)}
           coordinate={{
             latitude: markers[0].coords.lat,
             longitude: markers[0].coords.lng
@@ -51,7 +50,7 @@ function Maps({ navigation }) {
           title={items[0]}
         />
         <Marker
-          // onPress={() => handleClick(1)}
+          onPress={() => handleClick(1)}
           coordinate={{
             latitude: markers[1].coords.lat,
             longitude: markers[1].coords.lng
@@ -59,7 +58,7 @@ function Maps({ navigation }) {
           title={items[1]}
         />
         <Marker
-          // onPress={() => handleClick(2)}
+          onPress={() => handleClick(2)}
           coordinate={{
             latitude: markers[2].coords.lat,
             longitude: markers[2].coords.lng
@@ -74,14 +73,9 @@ Maps.navigationOptions = {
   title: "Maps"
 };
 const styles = {
-  container: {
-    // flex: 1
-    // alignItems: "center"
-    // flexDirection: "column",
-    // textAlign: "center"
-  },
-  textTItle: {
-    fontSize: 30,
+  container: {},
+  textTitle: {
+    fontSize: 20,
     textAlign: "center"
   },
   mapDisplay: {

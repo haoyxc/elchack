@@ -29,12 +29,6 @@ function Home({ navigation }) {
         </TouchableOpacity>
       </ImageBackground>
     </View>
-    // <View style={styles.container}>
-    //   <Text style={styles.textBig}>Welcome to Estee Lauder</Text>
-    //   <TouchableOpacity style={styles.button}>
-    //     <Text styles={textBtn}>Click to Get Started</Text>
-    //   </TouchableOpacity>
-    // </View>
   );
 }
 Home.navigationOptions = {

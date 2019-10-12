@@ -8,49 +8,42 @@ import {
   WebView,
   Platform,
   Image,
-  ImageBackground
+  ImageBackground,
+  Linking,
+  Button
 } from "react-native";
 import markers from "./markers.json";
+import { Player } from "video-react";
+import * as WebBrowser from "expo-web-browser";
+import Constants from "expo-constants";
 
 function VidPlayer({ navigation }) {
   // let url = navigation.getParam("url", "https://www.youtube.com/watch?v=hoX8QTlGfdA");
+
+  function handlePress() {
+    Linking.openURL(markers[id].content);
+  }
+  _handleOpenWithLinking = () => {
+    Linking.openURL(markers[id].content);
+  };
+
+  _handleOpenWithWebBrowser = () => {
+    WebBrowser.openBrowserAsync(markers[id].content);
+  };
   let id = navigation.getParam("ind", 0);
   const { width, height } = Dimensions.get("window");
   return (
     <View style={styles.container}>
-      <ImageBackground
-        style={{ width: "100%", height: "100%" }}
-        source={{
-          uri: markers[id].img
-        }}
-      >
-        <Text
-          style={{ color: "blue", zIndex: 5 }}
-          onPress={() => Linking.openURL(markers[id].content)}
-        >
-          Google
-        </Text>
-      </ImageBackground>
-
-      {/* <WebView
-        // source={{ uri: markers[id].content }}
-        style={styles.WebViewContainer}
-        javaScriptEnabled={true}
-        domStorageEnabled={true}
-        source={{ uri: markers[id].content }}
-      /> */}
-      {/* <View>
-        <Text style={{ textAlign: "center" }}>A Deeper Look...</Text>
-        {console.log(markers[id].content)}
-        <Video
-          source={{ uri: markers[id].content }}
-          shouldPlay
-          // resizeMode="cover"
-          resizeMode="stretch"
-          style={{ width, height: 300 }}
-        />
-        {/* <View style={styles.controlBar}></View> */}
-      {/* </View> */}
+      <Button
+        title="Open URL with ReactNative.Linking"
+        onPress={this._handleOpenWithLinking}
+        style={styles.button}
+      />
+      <Button
+        title="Open URL with Expo.WebBrowser"
+        onPress={this._handleOpenWithWebBrowser}
+        style={styles.button}
+      />
     </View>
   );
 }
@@ -59,7 +52,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight
   },
   controlBar: {
     position: "absolute",
@@ -76,7 +70,7 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS == "ios" ? 20 : 0
   }
 });
-Video.navigationOptions = {
+VidPlayer.navigationOptions = {
   title: "VidPlayer"
 };
 export default VidPlayer;

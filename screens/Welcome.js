@@ -74,9 +74,7 @@ function Welcome({ navigation }) {
         {/* <View style={styles.innerCon}> */}
         <Text style={styles.text}>Welcome to Estee Lauder</Text>
         <Text style={styles.text2}>Add a picture to learn more about our products</Text>
-        {/* <TouchableOpacity onPress={() => chooseImage()}>
-          <Text style={styles.innerText}>Touch me!</Text>
-        </TouchableOpacity> */}
+
         <TouchableOpacity style={styles.btnMain} onPress={() => chooseImage()}>
           {chosenImage ? (
             <Text style={styles.btnText}>Change your image</Text>
