@@ -14,17 +14,21 @@ import {
 import img from "./img/lipstickbg.jpg";
 
 function Home({ navigation }) {
-  function handlePress() {
+  function handleImagePress() {
     navigation.navigate(SCREENS.WELCOME);
   }
 
+  function handleCameraPress() {
+    navigation.navigate(SCREENS.CAMERA);
+  }
+  
   return (
     <View style={styles.container}>
       <ImageBackground source={img} style={{ width: "100%", height: "100%" }}>
         <Text style={styles.textBig}>Beyond Estée</Text>
         <TouchableOpacity style={styles.button} onPress={() => handlePress()}>
           <Text style={{ fontWeight: "500", fontSize: 20, color: "white" }}>
-            Get Started
+            Take a picture
           </Text>
         </TouchableOpacity>
       </ImageBackground>
