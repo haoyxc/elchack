@@ -4,5 +4,6 @@ export const SCREENS = {
   INFO: "Info",
   MAPS: "Maps",
   HOME: "Home",
-  VIDPLAYER: "VidPlayer"
+  VIDPLAYER: "VidPlayer",
+  CAMERA: "Camera",
 };
