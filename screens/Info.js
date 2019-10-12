@@ -28,20 +28,37 @@ function Info({ navigation }) {
     console.log("click!!!");
     navigation.navigate(SCREENS.MAPS, {
       id: i,
-      item: item
+      items: [ing1, ing2, ing3]
+    });
+  }
+  async function handleLongPress(i) {
+    navigation.navigate(SCREENS.VIDPLAYER, {
+      ind: i
     });
   }
   return (
     <View style={styles.container}>
       <Text style={styles.textBig}>{exInfo.product_name}'s Top Ingredients</Text>
 
-      <TouchableOpacity style={styles.item} onPress={() => handleClick(0, ing1)}>
+      <TouchableOpacity
+        style={styles.item}
+        onLongPress={() => handleLongPress(0)}
+        onPress={() => handleClick(0, ing1)}
+      >
         <Text style={styles.itemTxt}>{ing1}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.item} onPress={() => handleClick(1, ing2)}>
+      <TouchableOpacity
+        style={styles.item}
+        onLongPress={() => handleLongPress(1)}
+        onPress={() => handleClick(1, ing2)}
+      >
         <Text style={styles.itemTxt}>{ing2}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.item} onPress={() => handleClick(2, ing3)}>
+      <TouchableOpacity
+        style={styles.item}
+        onLongPress={() => handleLongPress(2)}
+        onPress={() => handleClick(2, ing3)}
+      >
         <Text style={styles.itemTxt}>{ing3}</Text>
       </TouchableOpacity>
     </View>

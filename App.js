@@ -17,7 +17,7 @@ const Navigator = createStackNavigator(
     Info: InfoScreen,
     Maps: MapsScreen,
     Home: HomeScreen,
-    Video: VidPlayerScreen
+    VidPlayer: VidPlayerScreen
   },
   {
     initialRouteName: SCREENS.HOME

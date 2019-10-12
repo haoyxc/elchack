@@ -5,7 +5,8 @@
             "lng": 133.7751
         },
         "iconImage": "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        "content": "https://www.youtube.com/embed/NYzdANLzk9M"
+        "content": "https://www.youtube.com/embed/NYzdANLzk9M",
+        "img": "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiUgK66kJflAhWRmuAKHUyCBeQQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.bloomberg.com%2Fnews%2Ffeatures%2F2017-02-21%2Faustralian-sandalwood-plantation-is-about-to-make-its-owners-a-lot-of-money&psig=AOvVaw3dwx8WEsIwMyXUQ_W7ys5H&ust=1570983693978745"
     },
     {
         "coords": {
@@ -13,7 +14,8 @@
             "lng": -51.9253
         },
         "iconImage": "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        "content": "https://www.youtube.com/embed/k2yX0paAg38?start=22"
+        "content": "https://www.youtube.com/embed/k2yX0paAg38?start=22",
+        "img": "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjIx-b5kJflAhXokOAKHbw4B-EQjRx6BAgBEAQ&url=https%3A%2F%2Frhoadsroast-coffees.com%2Fproducts%2Fbrazil-cerrado-arabica-natural-17-18-screen-coffee-beans-medium-roast-full-city-10-pounds-whole-beans&psig=AOvVaw0nHSA3UD2xXjYuVKDOLBzv&ust=1570983820568137"
     },
     {
         "coords": {
@@ -21,6 +23,7 @@
             "lng": 104.1954
         },
         "iconImage": "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-        "content": "https://www.youtube.com/embed/FOZ5OAoI4Jo?start=36"
+        "content": "https://www.youtube.com/embed/FOZ5OAoI4Jo?start=36",
+        "img": "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjG-42XkZflAhUFVN8KHSjTBH4QjRx6BAgBEAQ&url=https%3A%2F%2Fginseng-premium.com%2Fen%2Fculture-characteristics-why-is-korean-ginseng-a-premium-ginseng%2F&psig=AOvVaw35Ckb7FS1KWjdQpGpZnNnV&ust=1570983888463488"
     }
 ]

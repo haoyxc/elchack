@@ -72,7 +72,8 @@ function Welcome({ navigation }) {
     <View style={styles.container}>
       <ImageBackground source={roseImg} style={{ width: "100%", height: "100%" }}>
         {/* <View style={styles.innerCon}> */}
-        <Text style={styles.text}>Learn more about our quality ingredients</Text>
+        <Text style={styles.text}>Welcome to Estee Lauder</Text>
+        <Text style={styles.text2}>Add a picture to learn more about our products</Text>
         {/* <TouchableOpacity onPress={() => chooseImage()}>
           <Text style={styles.innerText}>Touch me!</Text>
         </TouchableOpacity> */}
@@ -153,8 +154,15 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: "300",
-    fontStyle: "italic",
     fontSize: 25,
+    padding: 20,
+    borderRadius: 20,
+    textAlign: "center"
+  },
+  text2: {
+    fontWeight: "200",
+    fontStyle: "italic",
+    fontSize: 15,
     padding: 20,
     borderRadius: 20,
     textAlign: "center"

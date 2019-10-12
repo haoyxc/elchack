@@ -21,7 +21,7 @@ function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={img} style={{ width: "100%", height: "100%" }}>
-        <Text style={styles.textBig}>Welcome to Estee Lauder</Text>
+        <Text style={styles.textBig}>Beyond Estee</Text>
         <TouchableOpacity style={styles.button} onPress={() => handlePress()}>
           <Text style={{ fontWeight: "500", fontSize: 20, color: "white" }}>
             Get Started

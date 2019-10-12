@@ -16,74 +16,55 @@ function Maps({ navigation }) {
   // let [markers, setMarkers] = useState(null);
   let id = navigation.getParam("id", 0);
   let loc = markers[id];
-  let item = navigation.getParam("item", "Good ingredient!");
+  let items = navigation.getParam("items", "Good ingredient!");
 
-  function handleClick() {
+  function handleClick(num) {
     navigation.navigate(SCREENS.VIDPLAYER, {
-      url: loc.content
+      url: markers[num].content
     });
   }
 
-  // function initMap() {
-  //   // Map options
-  //   var options = {
-  //     zoom: 4,
-  //     // centered at Australia
-  //     center: { lat: -25.2744, lng: 133.7751 }
-  //   };
-
-  //   // New map
-  //   var map = new google.maps.Map(document.getElementById("map"), options);
-
-  //   // Loop through markers
-  //   for (var i = 0; i < markers.length; i++) {
-  //     // Add marker
-  //     addMarker(markers[i]);
-  //   }
-
-  //   // Add Marker Function
-  //   function addMarker(props) {
-  //     var marker = new google.maps.Marker({
-  //       position: props.coords,
-  //       map: map
-  //       //icon:props.iconImage
-  //     });
-
-  //     // Check for customicon
-  //     if (props.iconImage) {
-  //       // Set icon image
-  //       marker.setIcon(props.iconImage);
-  //     }
-
-  //     // Check content
-  //     if (props.content) {
-  //       var infoWindow = new google.maps.InfoWindow({
-  //         content: props.content
-  //       });
-
-  //       marker.addListener("click", function() {
-  //         infoWindow.open(map, marker);
-  //       });
-  //     }
-  //   }
-  // }
   return (
     <View style={styles.container}>
       <Text styles={styles.textTitle}>This ingredient originated from...</Text>
       <MapView
-        onPress={() => handleClick()}
+        // onPress={() => handleClick()}
         style={styles.mapDisplay}
         initialRegion={{
           latitude: loc.coords.lat,
           longitude: loc.coords.lng,
-          latitudeDelta: 0.00001,
-          longitudeDelta: 0.00005
+          latitudeDelta: 0.0000001,
+          longitudeDelta: 0.00000001
         }}
       >
-        <Marker
+        {/* <Marker
           onPress={() => handleClick()}
           coordinate={{ latitude: loc.coords.lat, longitude: loc.coords.lng }}
           title={item}
+        /> */}
+        <Marker
+          // onPress={() => handleClick(0)}
+          coordinate={{
+            latitude: markers[0].coords.lat,
+            longitude: markers[0].coords.lng
+          }}
+          title={items[0]}
+        />
+        <Marker
+          // onPress={() => handleClick(1)}
+          coordinate={{
+            latitude: markers[1].coords.lat,
+            longitude: markers[1].coords.lng
+          }}
+          title={items[1]}
+        />
+        <Marker
+          // onPress={() => handleClick(2)}
+          coordinate={{
+            latitude: markers[2].coords.lat,
+            longitude: markers[2].coords.lng
+          }}
+          title={items[2]}
         />
       </MapView>
     </View>
