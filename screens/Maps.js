@@ -25,7 +25,9 @@ function Maps({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text styles={styles.textTitle}>This ingredient originated from...</Text>
+      <Text styles={{ textAlign: "center", fontSize: 20 }}>
+        This ingredient originated from...
+      </Text>
       <MapView
         // onPress={() => handleClick()}
         style={styles.mapDisplay}
@@ -73,7 +75,11 @@ Maps.navigationOptions = {
   title: "Maps"
 };
 const styles = {
-  container: {},
+  container: {
+    // flex: 1,
+    // backgroundColor: "#fff",
+    // justifyContent: "center"
+  },
   textTitle: {
     fontSize: 20,
     textAlign: "center"
@@ -85,7 +91,6 @@ const styles = {
   controlBar: {
     position: "absolute",
     bottom: 0,
-    left: 0,
     right: 0,
     height: 45,
     flexDirection: "row",

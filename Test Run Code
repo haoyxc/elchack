@@ -1,0 +1,28 @@
+curl -X POST \
+-H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+-H "Content-Type: application/json" \
+https://vision.googleapis.com/v1/images:annotate -d "{
+  'requests': [
+    {
+      'image': {
+        'source': {
+          'gcsImageUri': 'gs://photo_analyze/bb-shampoo-test.JPG'
+        }
+      },
+      'features': [
+        {
+          'type': 'PRODUCT_SEARCH'
+        }
+      ],
+      'imageContext': {
+        'productSearchParams': {
+          'productSet': 'projects/$PROJECT_ID/locations/$LOCATION_ID/productSets/$PRODUCT_SET_ID',
+          'productCategories': [
+               'homegoods'
+             ],
+        'filter': ''
+        }
+      }
+    }
+  ]
+}"

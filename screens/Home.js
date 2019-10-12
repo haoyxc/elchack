@@ -21,7 +21,7 @@ function Home({ navigation }) {
   function handleCameraPress() {
     navigation.navigate(SCREENS.CAMERA);
   }
-  
+
   return (
     <View style={styles.container}>
       <ImageBackground source={img} style={{ width: "100%", height: "100%" }}>
