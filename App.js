@@ -11,13 +11,16 @@ import {
   VidPlayerScreen
 } from "./screens";
 
+import CameraScreen  from "./screens/CameraScreen";
+
 const Navigator = createStackNavigator(
   {
     Welcome: WelcomeScreen,
     Info: InfoScreen,
     Maps: MapsScreen,
     Home: HomeScreen,
-    VidPlayer: VidPlayerScreen
+    VidPlayer: VidPlayerScreen,
+    Camera: CameraScreen
   },
   {
     initialRouteName: SCREENS.HOME
