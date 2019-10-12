@@ -13,38 +13,37 @@ import { SCREENS } from "../constants";
 
 function Info({ navigation }) {
   let [ingredients, setIngredients] = useState([]);
+  let [ing1, setIng1] = useState(null);
+  let [ing2, setIng2] = useState(null);
+  let [ing3, setIng3] = useState(null);
   useEffect(() => {
     // console.log(exInfo.ingredients);
     setIngredients(exInfo.ingredients);
+    setIng1(exInfo.ingredients[0].key);
+    setIng2(exInfo.ingredients[1].key);
+    setIng3(exInfo.ingredients[2].key);
   }, []);
 
-  async function handleClick() {
+  async function handleClick(i, item) {
     console.log("click!!!");
-    navigation.navigate(SCREENS.MAPS);
+    navigation.navigate(SCREENS.MAPS, {
+      id: i,
+      item: item
+    });
   }
   return (
     <View style={styles.container}>
-      <Text>{exInfo.ingredients.length} Ingredients Found</Text>
-      <TouchableOpacity>
-        <Text style={styles.item} onPress={() => handleClick()}>
-          hellp
-        </Text>
+      <Text style={styles.textBig}>{exInfo.product_name}'s Top Ingredients</Text>
+
+      <TouchableOpacity style={styles.item} onPress={() => handleClick(0, ing1)}>
+        <Text style={styles.itemTxt}>{ing1}</Text>
       </TouchableOpacity>
-      <FlatList
-        style={styles.list}
-        data={exInfo.ingredients}
-        keyExtractor={(ing, index) => `${ing}-${index}`}
-        renderItem={({ item }) => {
-          {
-            // <TouchableOpacity style={styles.item} onClick={() => handleClick()}>
-            {
-              console.log("ITEM", item.name);
-            }
-            <Text style={styles.item}>{item.name}</Text>;
-            // </TouchableOpacity>;
-          }
-        }}
-      />
+      <TouchableOpacity style={styles.item} onPress={() => handleClick(1, ing2)}>
+        <Text style={styles.itemTxt}>{ing2}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.item} onPress={() => handleClick(2, ing3)}>
+        <Text style={styles.itemTxt}>{ing3}</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -54,14 +53,13 @@ Info.navigationOptions = {
 };
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // paddingTop: 22
-    // // flex: 1,
+    flex: 1,
+    paddingTop: 22,
     // justifyContent: "center",
-    // alignItems: "center",
-    // // flexDirection: "column",
-    // textAlign: "center"
-    // // backgroundColor: "#ffbbcc"
+    alignItems: "center",
+    // flexDirection: "column",
+    textAlign: "center",
+    backgroundColor: "#ffbbcc"
     // // paddingBottom: 200
   },
   innerCon: {
@@ -69,35 +67,36 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffbbcc",
     marginBottom: 20
   },
+  textBig: {
+    fontSize: 25,
+    textAlign: "center",
+    margin: 10,
+    fontWeight: "200",
+    color: "black",
+    fontStyle: "italic"
+  },
   item: {
     padding: 10,
     fontSize: 18,
     height: 44,
     height: 40,
-    width: 50
-    // paddingTop: 5,
-    // paddingBottom: 5,
-    // padding: 10,
-    // fontSize: 18,
-    // height: 44,
-    // paddingLeft: 20,
-    // paddingRight: 20,
-    // backgroundColor: "white",
-    // // width: 200,
-    // marginTop: 10,
-    // marginBottom: 10,
-    // borderColor: "black"
+    width: 300,
+    paddingTop: 5,
+    paddingBottom: 5,
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+    paddingLeft: 20,
+    paddingRight: 20,
+    backgroundColor: "white",
+    borderRadius: 30,
+    // width: 200,
+    marginTop: 10,
+    marginBottom: 10,
+    borderColor: "black"
   },
-  list: {
-    flex: 1
-    // backgroundColor: "white",
-    // marginTop: 10
-  },
-  indivIng: {
-    fontWeight: "200",
-    fontSize: 20,
-    textAlign: "center",
-    color: "black"
+  itemTxt: {
+    fontSize: 18
   }
 });
 export default Info;

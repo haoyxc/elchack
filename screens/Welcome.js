@@ -6,14 +6,13 @@ import {
   TextInput,
   TouchableOpacity,
   Button,
-  Image
+  Image,
+  ImageBackground
 } from "react-native";
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
 import { SCREENS } from "../constants";
-import axios from "axios";
-
-import { RNCamera } from "react-native-camera";
+import roseImg from "./img/abstractbg.png";
 
 takePicture = async function(camera) {
   const options = { quality: 0.5, base64: true };
@@ -71,7 +70,8 @@ function Welcome({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.innerCon}>
+      <ImageBackground source={roseImg} style={{ width: "100%", height: "100%" }}>
+        {/* <View style={styles.innerCon}> */}
         <Text style={styles.text}>Learn more about our quality ingredients</Text>
         {/* <TouchableOpacity onPress={() => chooseImage()}>
           <Text style={styles.innerText}>Touch me!</Text>
@@ -80,21 +80,33 @@ function Welcome({ navigation }) {
           {chosenImage ? (
             <Text style={styles.btnText}>Change your image</Text>
           ) : (
-            <Text style={styles.btnText}>Upload an image of your product to begin!</Text>
+            <Text style={styles.btnText}>Upload an image of your product...</Text>
           )}
         </TouchableOpacity>
+        <View style={{ style: "flex", justifyContent: "center", alignItems: "center" }}>
+          {chosenImage ? (
+            <Image
+              source={{ uri: chosenImage.uri }}
+              style={{ width: 200, height: 200, zIndex: 10 }}
+            />
+          ) : (
+            <Text style={styles.helperText}>No image chosen</Text>
+          )}
+        </View>
 
-        {chosenImage ? (
-          <Image source={{ uri: chosenImage.uri }} style={{ width: 300, height: 300 }} />
-        ) : (
-          <Text style={styles.helperText}>No image chosen</Text>
-        )}
+        {/* </View> */}
         {chosenImage && (
           <TouchableOpacity onPress={() => uploadImage()}>
             <View
               style={{
                 backgroundColor: "#FF1493",
-                padding: 10
+                padding: 10,
+                borderRadius: 20,
+                paddingTop: 15,
+                paddingBottom: 15,
+                marginTop: 30,
+                marginRight: 20,
+                marginLeft: 20
               }}
             >
               <Text
@@ -109,7 +121,7 @@ function Welcome({ navigation }) {
             </View>
           </TouchableOpacity>
         )}
-      </View>
+      </ImageBackground>
     </View>
   );
 }
@@ -124,7 +136,8 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: "#ffbbcc"
   },
   innerCon: {
     // flex: 1,
@@ -132,29 +145,33 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   btnMain: {
-    backgroundColor: "#ffbbcc",
     borderRadius: 20,
     color: "white",
     paddingTop: 20,
-    paddingBottom: 20
+    paddingBottom: 20,
+    marginBottom: 20
   },
   text: {
     fontWeight: "300",
     fontStyle: "italic",
-    fontSize: 15,
+    fontSize: 25,
     padding: 20,
-    borderRadius: 20
+    borderRadius: 20,
+    textAlign: "center"
   },
   innerText: {
     fontWeight: "200"
   },
   helperText: {
     textAlign: "center",
-    fontWeight: "100",
+    fontWeight: "200",
     fontStyle: "italic"
   },
   btnText: {
     color: "white",
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 20,
+    marginRight: 10,
+    marginLeft: 10
   }
 });

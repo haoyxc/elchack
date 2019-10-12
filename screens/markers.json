@@ -1,0 +1,26 @@
+[
+    {
+        "coords": {
+            "lat": -25.2744,
+            "lng": 133.7751
+        },
+        "iconImage": "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        "content": "https://www.youtube.com/embed/NYzdANLzk9M"
+    },
+    {
+        "coords": {
+            "lat": -14.235,
+            "lng": -51.9253
+        },
+        "iconImage": "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        "content": "https://www.youtube.com/embed/k2yX0paAg38?start=22"
+    },
+    {
+        "coords": {
+            "lat": 35.8617,
+            "lng": 104.1954
+        },
+        "iconImage": "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
+        "content": "https://www.youtube.com/embed/FOZ5OAoI4Jo?start=36"
+    }
+]

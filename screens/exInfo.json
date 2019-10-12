@@ -3,13 +3,13 @@
     "product_name": "Ginzing Peel-Off Mask",
     "ingredients": [
         {
-            "name": "Australian Sandalwood"
+            "key": "Australian Sandalwood"
         },
         {
-            "name": "Coffee Beans"
+            "key": "Coffee Beans"
         },
         {
-            "name": "Panaz Ginseng"
+            "key": "Panaz Ginseng"
         }
     ]
 }
