@@ -114,7 +114,8 @@ const styles = StyleSheet.create({
     borderColor: "black"
   },
   itemTxt: {
-    fontSize: 18
+    fontSize: 18,
+    textAlign: "center"
   }
 });
 export default Info;
