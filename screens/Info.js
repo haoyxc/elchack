@@ -10,6 +10,9 @@ import {
 } from "react-native";
 import exInfo from "./exInfo.json";
 import { SCREENS } from "../constants";
+import * as WebBrowser from "expo-web-browser";
+import Constants from "expo-constants";
+import markers from "./markers.json";
 
 function Info({ navigation }) {
   let [ingredients, setIngredients] = useState([]);
@@ -32,9 +35,7 @@ function Info({ navigation }) {
     });
   }
   async function handleLongPress(i) {
-    navigation.navigate(SCREENS.VIDPLAYER, {
-      ind: i
-    });
+    WebBrowser.openBrowserAsync(markers[i].content);
   }
   return (
     <View style={styles.container}>
