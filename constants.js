@@ -1,3 +1,9 @@
 export const SCREENS = {
-  LENS: "Lens"
+  LENS: "Lens",
+  WELCOME: "Welcome",
+  INFO: "Info"
+};
+
+export const COLORS = {
+  MAIN: "#F5FCFF"
 };
