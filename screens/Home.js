@@ -25,10 +25,10 @@ function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <ImageBackground source={img} style={{ width: "100%", height: "100%" }}>
-        <Text style={styles.textBig}>Beyond Estee</Text>
+        <Text style={styles.textBig}>Beyond Estée</Text>
         <TouchableOpacity style={styles.button} onPress={() => handleImagePress()}>
           <Text style={{ fontWeight: "500", fontSize: 20, color: "white" }}>
-            Submit an image
+            Choose image
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => handleCameraPress()}>
@@ -53,20 +53,22 @@ const styles = StyleSheet.create({
   textBig: {
     fontSize: 40,
     textAlign: "center",
-    margin: 10,
-    fontWeight: "300",
-    color: "black"
+    marginTop: 240,
+    fontWeight: "800",
+    color: "white"
     // fontStyle: "italic"
   },
   button: {
-    alignSelf: "stretch",
+    alignSelf: "center",
     paddingTop: 25,
     paddingBottom: 25,
-    marginTop: 30,
+    paddingRight: 25,
+    paddingLeft: 25,
+    marginTop: 100,
     marginLeft: 20,
     marginRight: 20,
-    borderRadius: 20,
-    backgroundColor: "#fadadd",
+    borderRadius: 10,
+    backgroundColor: "#ffd1dc",
     color: "white",
     display: "flex",
     alignItems: "center",
